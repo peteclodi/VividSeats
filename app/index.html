@@ -1,0 +1,48 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/style.css">
+    <!-- endbuild -->
+</head>
+<body ng-app="vividSeatsTestApp">
+    <!-- Add your site or application content here -->
+    <div class="container">
+        <ul class="nav nav-tabs" role="tablist" ng-init="activeTab = 'all'">
+            <li ng-class="{active: activeTab === 'all'}" ng-click="activeTab = 'all'"><a href="#">All Events</a></li>
+            <li ng-class="{active: activeTab === 'upcoming'}" ng-click="activeTab = 'upcoming'"><a href="#upcoming">Upcoming Events</a></li>
+            <li ng-class="{active: activeTab === 'local'}" ng-click="activeTab = 'local'"><a href="#local">Local Events</a></li>
+        </ul>
+        <div ng-view=""></div>
+    </div>
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/es5-shim/es5-shim.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/json3/lib/json3.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/event-service.js"></script>
+    <script src="scripts/controllers/all.js"></script>
+    <script src="scripts/controllers/local.js"></script>
+    <script src="scripts/controllers/upcoming.js"></script>
+    <!-- endbuild -->
+</body>
+</html>
