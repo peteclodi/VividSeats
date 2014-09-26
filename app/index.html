@@ -17,7 +17,7 @@
 <body ng-app="vividSeatsTestApp">
     <!-- Add your site or application content here -->
     <div class="container">
-        <ul class="nav nav-tabs" role="tablist" ng-init="activeTab = 'all'">
+        <ul class="nav nav-tabs" role="tablist" ng-controller="MainCtrl">
             <li ng-class="{active: activeTab === 'all'}" ng-click="activeTab = 'all'"><a href="#">All Events</a></li>
             <li ng-class="{active: activeTab === 'upcoming'}" ng-click="activeTab = 'upcoming'"><a href="#upcoming">Upcoming Events</a></li>
             <li ng-class="{active: activeTab === 'local'}" ng-click="activeTab = 'local'"><a href="#local">Local Events</a></li>
@@ -40,6 +40,7 @@
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
     <script src="scripts/event-service.js"></script>
+    <script src="scripts/controllers/main.js"></script>
     <script src="scripts/controllers/all.js"></script>
     <script src="scripts/controllers/local.js"></script>
     <script src="scripts/controllers/upcoming.js"></script>

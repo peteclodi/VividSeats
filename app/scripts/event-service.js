@@ -1,5 +1,3 @@
-'use strict';
-
 /*
  Provides access to a database of events.  Currently supports:
  all(onSuccess, onError):  calls onSuccess with the event list if successful, onError otherwise
@@ -162,7 +160,7 @@ var VividSeats = (function () {
         return obj;
     };
     var _simulateNetwork = function (onSuccess, onError) {
-        console.log()
+        console.log();
         var callback = Math.random() <= 0.9 ? onSuccess : onError;
         setTimeout(function () {
             callback()

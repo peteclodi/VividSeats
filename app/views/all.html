@@ -1,1 +1,30 @@
-All Events
+<table class="table table-bordered table-hover">
+    <thead>
+    <tr>
+        <td class="col-sm-4">Event Name</td>
+        <td class="col-sm-2">Date</td>
+        <td class="col-sm-3">Venue</td>
+        <td class="col-sm-1">City</td>
+        <td class="col-sm-1">State</td>
+        <td class="col-sm-1">Action</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="event in allEvents track by event.id">
+        <td class="col-sm-4">{{event.name}}</td>
+        <td class="col-sm-1">{{event.date | date:'MMM d h a'}}</td>
+        <td class="col-sm-3">{{event.venue.name}}</td>
+        <td class="col-sm-1">{{event.venue.city}}</td>
+        <td class="col-sm-1">{{event.venue.state}}</td>
+        <td class="col-sm-2">
+            <span class="glyphicon glyphicon-remove btn-sm btn" title="Remove Event" ng-click="removeEvent(event)"></span>
+            <span class="glyphicon glyphicon-edit btn-sm btn" title="Edit Event" ng-click="editEvent(event)"></span>
+        </td>
+    </tr>
+    <tr ng-if="allEvents.length === 0">
+        <td colspan="6" class="text-center">No Events Scheduled!</td>
+    </tr>
+    </tbody>
+</table>
+
+        <span class="btn btn-default" ng-click="addEvent()">Add Event</span>
