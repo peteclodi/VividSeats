@@ -12,7 +12,7 @@ var VividSeats = (function () {
         {
             "id": 123,
             "name": "Sesame Street Live - Elmo Makes Music",
-            "date": "2014-01-15T10:30:00",
+            "date": "2014-09-15T10:30:00",
             "venue": {
                 "id": 111,
                 "name": "Broome County Forum",
@@ -32,7 +32,7 @@ var VividSeats = (function () {
         {
             "id": 125,
             "name": "Mac King Comedy Magic Show",
-            "date": "2014-01-15T13:00:00",
+            "date": "2014-10-15T13:00:00",
             "venue": {
                 "id": 300,
                 "name": "Harrah's Las Vegas Casino",
@@ -43,7 +43,7 @@ var VividSeats = (function () {
         {
             "id": 126,
             "name": "42nd Street",
-            "date": "2014-01-15T13:30:00",
+            "date": "2014-09-30T13:30:00",
             "venue": {
                 "id": 1200,
                 "name": "Paramount Theatre - IL",
@@ -54,20 +54,18 @@ var VividSeats = (function () {
         {
             "id": 127,
             "name": "Million Dollar Quartet",
-            "date": "2014-01-15T14:00:00",
+            "date": "2014-09-27T14:00:00",
             "venue": {
                 "id": 712,
                 "name": "Apollo Theater-IL",
-
                 "city": "Chicago",
                 "state": "IL"
-
             }
         },
         {
             "id": 128,
             "name": "Twelfth Night",
-            "date": "2014-01-15T14:00:00",
+            "date": "2014-10-15T14:00:00",
             "venue": {
                 "id": 1665,
                 "name": "Belasco Theatre",
@@ -78,7 +76,7 @@ var VividSeats = (function () {
         {
             "id": 129,
             "name": "The Glass Menagerie",
-            "date": "2014-01-15T14:00:00",
+            "date": "2014-10-28T14:00:00",
             "venue": {
                 "id": 2411,
                 "name": "Booth Theatre",
@@ -89,19 +87,18 @@ var VividSeats = (function () {
         {
             "id": 130,
             "name": "Cinderella - The Musical",
-            "date": "2014-01-16T14:00:00",
+            "date": "2014-09-16T14:00:00",
             "venue": {
                 "id": 2332,
                 "name": "Broadway Theatre-New York",
                 "city": "New York",
                 "state": "NY"
-
             }
         },
         {
             "id": 131,
             "name": "After Midnight",
-            "date": "2014-01-16T14:00:00",
+            "date": "2015-05-16T14:00:00",
             "venue": {
                 "id": 2372,
                 "name": "Brooks Atkinson Theatre",
@@ -112,7 +109,7 @@ var VividSeats = (function () {
         {
             "id": 132,
             "name": "Die Fledermaus",
-            "date": "2014-01-16T14:00:00",
+            "date": "2014-10-16T14:00:00",
             "venue": {
                 "id": 3244,
                 "name": "Civic Opera House",
@@ -125,7 +122,7 @@ var VividSeats = (function () {
         _events.push(event);
     };
     var _allEvents = function () {
-        return _deepCopy(_events)
+        return _deepCopy(_events);
     };
     var _updateEvent = function (event) {
         _events.forEach(function (item) {
@@ -139,7 +136,7 @@ var VividSeats = (function () {
     };
     var _removeEvent = function (event) {
         _events = _events.filter(function (item) {
-            return item.id !== event.id
+            return item.id !== event.id;
         });
     };
     var _deepCopy = function (obj) {
@@ -163,7 +160,7 @@ var VividSeats = (function () {
         console.log();
         var callback = Math.random() <= 0.9 ? onSuccess : onError;
         setTimeout(function () {
-            callback()
+            callback();
         }, Math.random() * 100);
     };
 
@@ -174,7 +171,7 @@ var VividSeats = (function () {
                 _simulateNetwork(function () {
                     onSuccess(_allEvents());
                 }, function () {
-                    onError("Oops, a server error occurred")
+                    onError("Oops, a server error occurred");
                 });
             },
 
@@ -182,7 +179,7 @@ var VividSeats = (function () {
                 _simulateNetwork(function () {
                     onSuccess(_updateEvent(event));
                 }, function () {
-                    onError("Oops, a server error occurred")
+                    onError("Oops, a server error occurred");
                 });
             },
 
@@ -190,7 +187,7 @@ var VividSeats = (function () {
                 _simulateNetwork(function () {
                     onSuccess(_addEvent(event));
                 }, function () {
-                    onError("Oops, a server error occurred")
+                    onError("Oops, a server error occurred");
                 });
             },
 
@@ -198,7 +195,7 @@ var VividSeats = (function () {
                 _simulateNetwork(function () {
                     onSuccess(_removeEvent(event));
                 }, function () {
-                    onError("Oops, a server error occurred")
+                    onError("Oops, a server error occurred");
                 });
             }
         }
