@@ -8,7 +8,7 @@
  * Controller of the vividSeatsTestApp
  */
 angular.module('vividSeatsTestApp')
-    .controller('AllCtrl', function ($scope, $rootScope, AlertModal, EventActions) {
+    .controller('AllCtrl', function ($scope, $rootScope, $modal, AlertModal, EventActions) {
         var api = VividSeats.eventService;
         $scope.events = [];
         $scope.dateFormat = $rootScope.dateFormat;
