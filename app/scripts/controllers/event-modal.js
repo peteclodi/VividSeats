@@ -2,14 +2,15 @@
 
 /**
  * @ngdoc function
- * @name vividSeatsTestApp.controller:AddModalInstanceCtrl
+ * @name vividSeatsTestApp.controller:EditModalInstanceCtrl
  * @description
- * # AddModalInstanceCtrl
+ * # EditModalInstanceCtrl
  * Controller of the vividSeatsTestApp
  */
 angular.module('vividSeatsTestApp')
-    .controller('AddModalInstanceCtrl', function ($scope, $rootScope, $modalInstance, $filter, event) {
+    .controller('EventModalInstanceCtrl', function ($scope, $rootScope, $modalInstance, $filter, event) {
         $scope.event = event;
+        $scope.editingEvent = angular.copy(event);
         $scope.format = $rootScope.dateFormat;
         $scope.states = $rootScope.states;
 
@@ -21,8 +22,8 @@ angular.module('vividSeatsTestApp')
         };
 
         $scope.save = function() {
-            $scope.event.date = $filter('date')($scope.event.date, $scope.format);
-            $modalInstance.close($scope.event);
+            $scope.editingEvent.date = $filter('date')($scope.editingEvent.date, $scope.format);
+            $modalInstance.close($scope.editingEvent);
         };
         $scope.cancel = function() {
             $modalInstance.dismiss('cancel');

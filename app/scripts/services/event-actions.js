@@ -12,8 +12,8 @@ angular.module('vividSeatsTestApp')
         var eventActions = {
             edit: function(eventToEdit, successCallback) {
                 var modalInstance = $modal.open({
-                    templateUrl: 'views/edit-modal.html',
-                    controller: 'EditModalInstanceCtrl',
+                    templateUrl: 'views/event-modal.html',
+                    controller: 'EventModalInstanceCtrl',
                     resolve: {
                         event: function() {
                             return eventToEdit;

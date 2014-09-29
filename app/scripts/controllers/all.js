@@ -42,8 +42,8 @@ angular.module('vividSeatsTestApp')
 
         $scope.addEvent = function() {
             var modalInstance = $modal.open({
-                templateUrl: 'views/add-modal.html',
-                controller: 'AddModalInstanceCtrl',
+                templateUrl: 'views/event-modal.html',
+                controller: 'EventModalInstanceCtrl',
                 resolve: {
                     event: function() {
                         return { date: (new Date()).valueOf(), venue: {} };

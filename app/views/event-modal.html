@@ -1,0 +1,47 @@
+<div class="modal-header">
+    <h3 class="modal-title">{{event.name}}</h3>
+</div>
+<div class="modal-body">
+    <form name="eventForm">
+        <div class="row">
+            <div class="form-group col-sm-6" ng-class="{'has-error': eventForm.eventName.$error.required && eventForm.eventName.$dirty}">
+                <label class="control-label">Name:</label>
+                <input name="eventName" id="eventName" type="text" class="form-control" ng-model="editingEvent.name" autofocus required>
+                <span class="help-block" ng-if="eventForm.eventName.$error.required && eventForm.eventName.$dirty">Required</span>
+            </div>
+            <div class="form-group col-sm-6" ng-class="{'has-error': eventForm.eventDate.$error.required && eventForm.eventDate.$dirty}">
+                <label class="control-label">Date:</label>
+                <p class="input-group">
+                    <input name="eventDate" type="text" class="form-control" datepicker-popup="{{format}}" ng-model="editingEvent.date" is-open="opened" close-text="Close" required/>
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </p>
+                <p class="help-block" ng-if="eventForm.eventDate.$error.required && eventForm.eventDate.$dirty">Required</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-sm-12" ng-class="{'has-error': eventForm.venueName.$error.required && eventForm.venueName.$dirty}">
+                <label class="control-label">Venue:</label>
+                <input name="venueName" type="text" class="form-control" ng-model="editingEvent.venue.name" required>
+                <p class="help-block" ng-if="eventForm.venueName.$error.required && eventForm.venueName.$dirty">Required</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-sm-6" ng-class="{'has-error': eventForm.venueCity.$error.required && eventForm.venueCity.$dirty}">
+                <label class="control-label">City:</label>
+                <input name="venueCity" type="text" class="form-control" ng-model="editingEvent.venue.city" required>
+                <p class="help-block" ng-if="eventForm.venueCity.$error.required && eventForm.venueName.$dirty">Required</p>
+            </div>
+            <div class="form-group col-sm-6">
+                <label class="control-label">State:</label>
+                <select class="form-control" ng-model="editingEvent.venue.state"
+                        ng-options="state.name as state.name for state in states"></select>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="save()" ng-disabled="eventForm.$error.required">Save</button>
+    <button class="btn btn-default" ng-click="cancel()">Cancel</button>
+</div>
