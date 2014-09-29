@@ -10,21 +10,25 @@
 angular.module('vividSeatsTestApp')
     .controller('UpcomingCtrl', function ($scope, $modal, AlertModal, EventActions) {
         var api = VividSeats.eventService;
-        $scope.events = [];
+        $scope.upcomingEvents = {};
 
         function retrieveEvents() {
             var scope = $scope;
-            scope.events = [];
+            scope.upcomingEvents = {};
             api.all(
                 function(events) {
                     var now = new Date();
-                    angular.forEach(events, function(event) {
-                        if(new Date(event.date).valueOf() >= now.valueOf()){
-                            scope.events.push(event);
-                        }
-                    });
-                    scope.events.sort(function(a, b) {
+                    events.sort(function(a, b) {
                         return (new Date(a.date)).valueOf() - (new Date(b.date)).valueOf();
+                    });
+                    angular.forEach(events, function(event) {
+                        var currentDateTimeVal = new Date(event.date).valueOf();
+                        if(currentDateTimeVal >= now.valueOf()){
+                            if(angular.isUndefined(scope.upcomingEvents[currentDateTimeVal])) {
+                                scope.upcomingEvents[currentDateTimeVal] = [];
+                            }
+                            scope.upcomingEvents[currentDateTimeVal].push(event);
+                        }
                     });
                     scope.$apply();
                 },

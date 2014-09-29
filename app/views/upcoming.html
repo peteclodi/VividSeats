@@ -1,3 +1,6 @@
 <div class="event-container">
-    <div ng-include="'views/event-table.html'"></div>
+    <div ng-repeat="(eventDate, events) in upcomingEvents">
+        <span class="event-grouping-header">Events on {{eventDate | date: 'MMM d yyyy'}}</span>
+        <ng-include src="'views/event-table.html'"></ng-include>
+    </div>
 </div>

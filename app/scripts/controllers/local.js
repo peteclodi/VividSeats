@@ -10,21 +10,21 @@
 angular.module('vividSeatsTestApp')
     .controller('LocalCtrl', function ($scope, AlertModal, EventActions) {
         var api = VividSeats.eventService;
-        $scope.events = {};
+        $scope.localEvents = {};
 
         function retrieveEvents() {
             var scope = $scope;
-            scope.events = {};
+            scope.localEvents = {};
             api.all(
                 function(events) {
                     events.sort(function(a, b) {
                         return (new Date(a.date)).valueOf() - (new Date(b.date)).valueOf();
                     });
                     angular.forEach(events, function(event) {
-                        if(angular.isUndefined(scope.events[event.venue.city])) {
-                            scope.events[event.venue.city] = [];
+                        if(angular.isUndefined(scope.localEvents[event.venue.city])) {
+                            scope.localEvents[event.venue.city] = [];
                         }
-                        scope.events[event.venue.city].push(event);
+                        scope.localEvents[event.venue.city].push(event);
                     });
                     scope.$apply();
                 },

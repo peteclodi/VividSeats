@@ -1,33 +1,6 @@
 <div class="event-container">
-    <div ng-repeat="(eventCity, cityEvents) in events">
-        <span class="city-name-grouping-header">Events in {{eventCity}}</span>
-        <table class="table table-bordered table-hover table-striped event-table">
-            <thead>
-            <tr>
-                <td class="col-sm-4">Event Name</td>
-                <td class="col-sm-2">Date</td>
-                <td class="col-sm-3">Venue</td>
-                <td class="col-sm-1">City</td>
-                <td class="col-sm-1">State</td>
-                <td class="col-sm-1">Actions</td>
-            </tr>
-            </thead>
-            <tbody>
-            <tr ng-repeat="event in cityEvents track by event.id">
-                <td class="col-sm-4">{{event.name}}</td>
-                <td class="col-sm-1">{{event.date | date: dateFormat}}</td>
-                <td class="col-sm-3">{{event.venue.name}}</td>
-                <td class="col-sm-1">{{event.venue.city}}</td>
-                <td class="col-sm-1">{{event.venue.state}}</td>
-                <td class="col-sm-2">
-                    <span class="action-btn glyphicon glyphicon-edit btn-sm btn" title="Edit Event" ng-click="editEvent(event)"></span>
-                    <span class="action-btn glyphicon glyphicon-remove btn-sm btn" title="Remove Event" ng-click="removeEvent(event)"></span>
-                </td>
-            </tr>
-            <tr ng-if="events.length === 0">
-                <td colspan="6" class="text-center">No Events Scheduled!</td>
-            </tr>
-            </tbody>
-        </table>
+    <div ng-repeat="(eventCity, events) in localEvents">
+        <span class="event-grouping-header">Events in {{eventCity}}</span>
+        <ng-include src="'views/event-table.html'"></ng-include>
     </div>
 </div>
